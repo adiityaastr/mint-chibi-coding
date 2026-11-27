@@ -4,13 +4,17 @@
 
 **Pet pixel art untuk Orca ADE.** Mint Chibi menemani agen saat ngoding dan bereaksi ketika Anda perlu turun tangan.
 
-<img src="./Mint-Chibi-Coding-preview.gif" alt="Animasi Mint Chibi membaca layar, mengetik, dan menampilkan gelembung saat selesai, error, atau menunggu masukan" width="320">
+<img src="./assets/promo.webp" alt="Video promosi Mint Chibi Responses: kamera menukik ke label status bar, label berganti status menunggu masukan, gagal, dan siap dicek, lalu daftar agen dengan label (+1)" width="720">
+
+▶️ **[Tonton dengan suara (MP4, 20 detik)](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-promo.mp4)** · [Versi potret untuk Reels/TikTok](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-promo-portrait.mp4)
 
 **[Unduh paket pet](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.0/Mint-Chibi-Coding.zip)** · [Buka GIF ukuran penuh](./Mint-Chibi-Coding-preview.gif) · [Lihat plugin di Orca](https://api.onorca.dev/plugins/adiityaastr/mint-chibi-coding)
 
 </div>
 
 ## Ekspresi Mint Chibi
+
+<p align="center"><img src="./Mint-Chibi-Coding-preview.gif" alt="Animasi Mint Chibi membaca layar, mengetik, dan menampilkan gelembung saat selesai, error, atau menunggu masukan" width="320"></p>
 
 | Status | Tampilan pet |
 | --- | --- |
@@ -47,7 +51,7 @@ Saat beberapa agen berjalan, status bar memprioritaskan agen yang menunggu masuk
 
 <img src="./assets/cover.png" alt="Mint Chibi Responses: contoh label status bar untuk menunggu masukan, gagal, dan siap dicek" width="720">
 
-**[Tonton video demo (24 detik, MP4)](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-demo.mp4)**
+**[Tonton video promosi (20 detik, MP4)](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-promo.mp4)** · [Demo per status (24 detik)](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-demo.mp4)
 
 | Sedang bekerja | Menunggu masukan |
 | --- | --- |
