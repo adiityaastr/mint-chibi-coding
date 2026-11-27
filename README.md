@@ -43,6 +43,8 @@ Mint Chibi mengikuti status yang dilaporkan agen ke Orca. Ini berlaku untuk Code
 
 **Mint Chibi Responses** adalah plugin opsional untuk Orca Desktop **1.4.248+**. Plugin berjalan sebagai worker lokal dan meminta akses `agent:read` untuk menerima perubahan status agen. Gelembung pada pet sudah termasuk di paket sprite.
 
+Saat beberapa agen berjalan, status bar memprioritaskan agen yang menunggu masukan atau terhambat. Jika lebih dari satu agen butuh perhatian, label menampilkan jumlah tambahan dan tooltip merinci status agen.
+
 <details>
 <summary><strong>Pasang dari katalog Orca</strong></summary>
 
@@ -58,7 +60,7 @@ Buka **Settings → Plugins**, cari **Mint Chibi Responses**, lalu tinjau akses 
 Untuk memasang versi yang ditag:
 
 ~~~sh
-orca plugin install adiityaastr/mint-chibi-coding@v1.0.1
+orca plugin install adiityaastr/mint-chibi-coding@v1.0.2
 ~~~
 
 Untuk memasang dari folder, unduh atau clone repo ini, lalu jalankan perintah berikut dari folder yang berisi `orca-plugin.json`:

@@ -1,14 +1,18 @@
-const idle = { text: 'Mint Chibi siap', icon: 'bot', tone: 'neutral',
-  tooltip: 'Menunggu perubahan status agen Orca.' };
+const idle = {
+  text: 'Mint Chibi siap',
+  icon: 'bot',
+  tone: 'neutral',
+  tooltip: 'Menunggu perubahan status agen Orca.'
+};
 
 const responses = {
-  working: { text: 'Aku lagi ngoding!', icon: 'code', tone: 'accent' },
-  blocked: { text: 'Aku butuh bantuanmu', icon: 'warning', tone: 'warning' },
-  waiting: { text: 'Aku menunggu masukanmu', icon: 'bell', tone: 'warning' },
-  success: { text: 'Beres! Kodenya siap dicek', icon: 'check', tone: 'success' },
-  failure: { text: 'Ada yang gagal. Yuk, cek hasilnya', icon: 'bug', tone: 'danger' },
-  interrupted: { text: 'Pekerjaan terhenti', icon: 'pause', tone: 'neutral' },
-  done: { text: 'Agen selesai. Yuk, cek hasilnya', icon: 'info', tone: 'neutral' }
+  blocked: { label: 'butuh bantuan', icon: 'warning', tone: 'warning', priority: 4 },
+  waiting: { label: 'menunggu masukan', icon: 'bell', tone: 'warning', priority: 4 },
+  failure: { label: 'gagal. Cek hasilnya', icon: 'bug', tone: 'danger', priority: 3 },
+  success: { label: 'selesai. Siap dicek', icon: 'check', tone: 'success', priority: 2 },
+  interrupted: { label: 'terhenti', icon: 'pause', tone: 'neutral', priority: 2 },
+  done: { label: 'selesai. Cek hasilnya', icon: 'info', tone: 'neutral', priority: 2 },
+  working: { label: 'sedang bekerja', icon: 'code', tone: 'accent', priority: 1 }
 };
 
 function responseKey(event) {
@@ -24,29 +28,59 @@ function responseKey(event) {
 }
 
 export default function activate(orca) {
-  let resetTimer;
-  let latestAt = 0;
-  let updates = Promise.resolve();
+  const panes = new Map();
+  let pending = Promise.resolve();
+  let lastMessage;
 
-  function show(message) {
-    updates = updates
+  function refresh() {
+    const ordered = [...panes.values()].sort((a, b) =>
+      b.response.priority - a.response.priority || b.receivedAt - a.receivedAt
+    );
+    const first = ordered[0];
+    let message = idle;
+    if (first) {
+      const { icon, tone, label } = first.response;
+      const additional = ordered.filter(pane => pane.response.priority === 4).length - 1;
+      const suffix = first.response.priority === 4 && additional > 0 ? ' (+' + additional + ')' : '';
+      message = {
+        icon,
+        tone,
+        text: first.title.slice(0, 30) + ' ' + label + suffix,
+        tooltip: ordered.slice(0, 5).map(pane => pane.title + ': ' + pane.response.label).join('\n')
+      };
+    }
+    const signature = JSON.stringify(message);
+    if (signature === lastMessage) return pending;
+    lastMessage = signature;
+    pending = pending
       .then(() => orca.host.call('statusBar.update', { id: 'response', ...message }))
-      .catch(error => console.error('Mint Chibi status update failed:', error.message));
-    return updates;
+      .catch(error => {
+        if (lastMessage === signature) lastMessage = undefined;
+        console.error('Mint Chibi status update failed:', error.message);
+      });
+    return pending;
   }
 
   orca.events.on('agent.status.changed', event => {
-    const key = responseKey(event);
-    const response = responses[key];
-    if (!response || event.receivedAt < latestAt) return;
-    latestAt = event.receivedAt;
+    const response = responses[responseKey(event)];
+    const previous = panes.get(event.paneKey);
+    if (!response || !event.paneKey || event.receivedAt < (previous?.receivedAt ?? 0)) return;
 
-    clearTimeout(resetTimer);
-    const title = event.title?.trim().slice(0, 80) || 'Agen Orca';
-    const update = show({ ...response, tooltip: title + ' | ' + response.text });
+    clearTimeout(previous?.timer);
+    const entry = {
+      response,
+      receivedAt: event.receivedAt,
+      title: event.title?.trim().slice(0, 64) || previous?.title || 'Agen Orca'
+    };
+    panes.set(event.paneKey, entry);
+
     if (event.state === 'done') {
-      resetTimer = setTimeout(() => show(idle), 12000);
+      entry.timer = setTimeout(() => {
+        if (panes.get(event.paneKey) !== entry) return;
+        panes.delete(event.paneKey);
+        return refresh();
+      }, 12000);
     }
-    return update;
+    return refresh();
   });
 }

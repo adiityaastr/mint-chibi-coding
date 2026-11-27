@@ -3,7 +3,7 @@
   "execution": "trusted-worker",
   "id": "mint-chibi-responses",
   "name": "Mint Chibi Responses",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pesan Mint Chibi untuk perubahan status agen di Orca.",
   "engines": {
     "orca": ">=1.4.248"
