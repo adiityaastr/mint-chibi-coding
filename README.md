@@ -71,6 +71,44 @@ Jika Orca meminta persetujuan, tinjau aksesnya dan ikuti perintah dengan fingerp
 
 </details>
 
+## Prompt siap salin untuk agen
+
+Jalankan agen dari workspace Orca, lalu pilih prompt yang sesuai. Prompt ini membantu memasang pet dan menguji status agen pada sesi Anda.
+
+<details>
+<summary><strong>Claude Code</strong></summary>
+
+~~~text
+Bantu saya memasang Mint Chibi Coding untuk Claude Code di Orca Desktop.
+Baca panduan di https://github.com/adiityaastr/mint-chibi-coding#readme dan unduh ZIP pet dari rilis GitHub resmi proyek. Periksa bahwa paket yang diekstrak memiliki pet.json dan spritesheet.webp. Impor lewat menu Pet Orca jika Anda memiliki akses GUI. Jika menu harus saya gunakan sendiri, berikan lokasi folder yang harus saya pilih.
+
+Bantu cek apakah Agent status hooks aktif, lalu uji status bekerja dengan merangkum README proyek. Setelah itu, minta saya memilih satu dari dua opsi pengujian melalui fitur pertanyaan interaktif jika tersedia, supaya saya dapat melihat apakah Orca menampilkan status menunggu. Jelaskan bagian yang berhasil diuji dan apa yang perlu saya lihat langsung di Orca. Plugin status bar bersifat opsional dan hanya dipasang jika saya memintanya.
+~~~
+
+</details>
+
+<details>
+<summary><strong>Codex</strong></summary>
+
+~~~text
+Saya menjalankan Codex di Orca Desktop. Bantu saya memasang pet Mint Chibi Coding dari https://github.com/adiityaastr/mint-chibi-coding#readme. Unduh dan ekstrak ZIP, periksa pet.json dan spritesheet.webp, lalu gunakan menu impor pet Orca jika bisa diakses. Jika perlu tindakan manual, sebutkan menu dan jalur foldernya.
+
+Untuk menguji animasi, baca dan rangkum README tanpa mengubah file, lalu gunakan fitur pertanyaan interaktif jika tersedia dan tunggu jawaban saya. Laporkan status Orca yang bisa Anda verifikasi serta status yang harus saya amati sendiri. Jika pesan menunggu tidak muncul, periksa integrasi status Codex di Orca sebelum mengusulkan perubahan. Pasang plugin pesan status bar hanya jika saya memintanya.
+~~~
+
+</details>
+
+<details>
+<summary><strong>Agen CLI lain</strong></summary>
+
+~~~text
+Bantu saya memakai Mint Chibi Coding dengan agen CLI ini di Orca Desktop. Ikuti panduan https://github.com/adiityaastr/mint-chibi-coding#readme untuk mengunduh, mengekstrak, dan mengimpor paket pet. Jika Anda tidak bisa mengakses GUI, beri saya lokasi folder dan langkah impor.
+
+Periksa apakah Orca menerima status agen ini. Untuk tes bekerja dan selesai, rangkum sebuah file yang sudah ada tanpa mengubah workspace. Jika sesi mendukung pertanyaan interaktif, ajukan satu pertanyaan dan tunggu jawaban untuk menguji status menunggu. Jika Orca tidak menerima status tertentu, jelaskan fitur yang masih bisa saya gunakan dan apa yang belum terverifikasi. Pasang plugin pesan status bar hanya jika saya memintanya.
+~~~
+
+</details>
+
 ## Pemecahan masalah
 
 | Masalah | Yang perlu dicek |
