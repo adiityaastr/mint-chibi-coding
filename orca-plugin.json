@@ -1,0 +1,34 @@
+{
+  "manifestVersion": 2,
+  "execution": "trusted-worker",
+  "id": "mint-chibi-responses",
+  "name": "Mint Chibi Responses",
+  "version": "1.0.1",
+  "description": "Pesan Mint Chibi untuk perubahan status agen di Orca.",
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "pluginApi": 1,
+  "main": "Mint-Chibi-Responses/main.mjs",
+  "capabilities": [
+    {
+      "kind": "agent:read"
+    }
+  ],
+  "contributes": {
+    "events": [
+      {
+        "on": "agent.status.changed"
+      }
+    ],
+    "statusBarItems": [
+      {
+        "id": "response",
+        "text": "Mint Chibi siap",
+        "icon": "bot",
+        "tooltip": "Menunggu perubahan status agen Orca."
+      }
+    ]
+  },
+  "license": "MIT"
+}
