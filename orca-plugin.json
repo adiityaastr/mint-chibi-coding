@@ -3,8 +3,45 @@
   "execution": "trusted-worker",
   "id": "mint-chibi-responses",
   "name": "Mint Chibi Responses",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pesan Mint Chibi untuk perubahan status agen di Orca.",
+  "author": {
+    "name": "adiityaastr",
+    "url": "https://github.com/adiityaastr"
+  },
+  "repository": "https://github.com/adiityaastr/mint-chibi-coding",
+  "homepage": "https://github.com/adiityaastr/mint-chibi-coding",
+  "icon": "assets/icon.png",
+  "cover": {
+    "path": "assets/cover.png",
+    "alt": "Mint Chibi duduk dengan laptop dan gelembung \"Kode siap dicek!\", di samping contoh label status bar: menunggu masukan, gagal, dan siap dicek"
+  },
+  "screenshots": [
+    {
+      "path": "assets/screenshot-working.png",
+      "alt": "Status bar Orca menampilkan \"Fitur login sedang bekerja\" berwarna biru saat agen mengedit file, dan Mint Chibi mengetik di laptop",
+      "caption": "Agen sedang bekerja: label biru, Mint Chibi ikut mengetik",
+      "theme": "dark"
+    },
+    {
+      "path": "assets/screenshot-waiting.png",
+      "alt": "Status bar menampilkan \"Fitur login menunggu masukan (+1)\" berwarna kuning, tooltip merinci tiga agen, dan Mint Chibi bertanya \"Bisa bantu aku?\"",
+      "caption": "Agen yang butuh Anda didahulukan, dan tooltip merinci semua agen",
+      "theme": "dark"
+    },
+    {
+      "path": "assets/screenshot-failed.png",
+      "alt": "Status bar menampilkan \"Fitur login gagal. Cek hasilnya\" berwarna merah setelah satu tes gagal, dan Mint Chibi berkata \"Ups, ada error!\"",
+      "caption": "Agen gagal: label merah sampai Anda memeriksa hasilnya",
+      "theme": "dark"
+    },
+    {
+      "path": "assets/screenshot-success.png",
+      "alt": "Status bar menampilkan \"Fitur login selesai. Siap dicek\" berwarna hijau setelah 14 tes lulus, dan Mint Chibi berkata \"Kode siap dicek!\"",
+      "caption": "Agen selesai: label hijau, siap Anda review",
+      "theme": "dark"
+    }
+  ],
   "engines": {
     "orca": ">=1.4.248"
   },

@@ -45,6 +45,16 @@ Mint Chibi mengikuti status yang dilaporkan agen ke Orca. Ini berlaku untuk Code
 
 Saat beberapa agen berjalan, status bar memprioritaskan agen yang menunggu masukan atau terhambat. Jika lebih dari satu agen butuh perhatian, label menampilkan jumlah tambahan dan tooltip merinci status agen.
 
+<img src="./assets/cover.png" alt="Mint Chibi Responses: contoh label status bar untuk menunggu masukan, gagal, dan siap dicek" width="720">
+
+**[Tonton video demo (24 detik, MP4)](https://github.com/adiityaastr/mint-chibi-coding/releases/download/v1.0.3/mint-chibi-responses-demo.mp4)**
+
+| Sedang bekerja | Menunggu masukan |
+| --- | --- |
+| <img src="./assets/screenshot-working.png" alt="Label biru: Fitur login sedang bekerja" width="400"> | <img src="./assets/screenshot-waiting.png" alt="Label kuning: Fitur login menunggu masukan (+1), dengan tooltip tiga agen" width="400"> |
+| **Gagal** | **Selesai** |
+| <img src="./assets/screenshot-failed.png" alt="Label merah: Fitur login gagal. Cek hasilnya" width="400"> | <img src="./assets/screenshot-success.png" alt="Label hijau: Fitur login selesai. Siap dicek" width="400"> |
+
 <details>
 <summary><strong>Pasang dari katalog Orca</strong></summary>
 
@@ -60,7 +70,7 @@ Buka **Settings → Plugins**, cari **Mint Chibi Responses**, lalu tinjau akses 
 Untuk memasang versi yang ditag:
 
 ~~~sh
-orca plugin install adiityaastr/mint-chibi-coding@v1.0.2
+orca plugin install adiityaastr/mint-chibi-coding@v1.0.3
 ~~~
 
 Untuk memasang dari folder, unduh atau clone repo ini, lalu jalankan perintah berikut dari folder yang berisi `orca-plugin.json`:
